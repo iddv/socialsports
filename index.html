@@ -156,11 +156,57 @@
         
         <div class="newsletter-section">
             <h2>Stay Updated</h2>
-            <form class="newsletter-form">
+            <form class="newsletter-form" onsubmit="handleSubmit(event)">
                 <input type="email" placeholder="Enter your email for updates" required>
                 <button class="cta-link">Notify Me</button>
             </form>
         </div>
+        
+        <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.querySelector('input[type="email"]').value;
+            
+            // Validate email
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+        
+            // Send data to Formspree
+            try {
+                fetch('https://formspree.io/f/myzkpoyd', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert('Thank you for subscribing! 🎉');
+                    } else {
+                        alert('Subscription failed. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while subscribing. Please try again later.');
+                });
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while subscribing. Please try again later.');
+            }
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        </script>
 
         <p>Cheers,<br>The Padel Social Club Team</p>
     </div>
