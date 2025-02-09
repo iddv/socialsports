@@ -168,31 +168,38 @@
             const form = event.target;
             const formData = new FormData(form);
             const email = formData.get('email');
-        
+          
             // Validate email
             if (!validateEmail(email)) {
                 alert('Please enter a valid email address');
                 return;
             }
-        
+          
             // Show loading state
             const button = document.querySelector('.cta-link');
             button.innerHTML = 'Sending...';
             button.disabled = true;
-        
+          
             try {
+                // Create a JSON object from the FormData
+                const formObject = {};
+                formData.forEach((value, key) => {
+                    formObject[key] = value;
+                });
+              
+                // Send the form data as JSON
                 fetch('https://formspree.io/f/myzkpoyd', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'multipart/form-data'
+                        'Content-Type': 'application/json', // JSON content type
                     },
-                    body: formData
+                    body: JSON.stringify(formObject) // Convert form data to JSON
                 })
                 .then(response => response.json())
                 .then(data => {
                     button.innerHTML = 'Notify Me';
                     button.disabled = false;
-        
+          
                     if (data.ok) {
                         // Show success message and optionally redirect
                         alert('Thank you for subscribing! 🎉');
@@ -219,7 +226,7 @@
             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return re.test(email);
         }
-        </script>
+        </script>        
 
         <p>Cheers,<br>The Padel Social Club Team</p>
     </div>
