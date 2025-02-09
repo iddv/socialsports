@@ -4,71 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Social & Sports - Coming Soon</title>
+    <title>Padel Social Club - Coming Soon</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
             color: #333;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
         .container {
-            background-color: #ffffff;
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 600px;
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 2.5rem;
             color: #1e4d8e;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #ff6b6b;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 20px 0;
         }
 
         p {
             font-size: 18px;
             line-height: 1.6;
             color: #555;
-        }
-
-        .highlight {
-            font-weight: bold;
-            color: #e74c3c;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 30px;
         }
 
         .cta-link {
+            display: inline-block;
             text-decoration: none;
-            color: #fff;
+            color: white;
             background-color: #1e4d8e;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 30px;
+            border-radius: 25px;
             font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
         }
 
         .cta-link:hover {
-            background-color: #e74c3c;
+            background-color: #ff6b6b;
+            transform: translateY(-3px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #1e4d8e;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #1e4d8e;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        input[type="email"] {
+            width: 70%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #1e4d8e;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Padel Social Club 🎾</h1>
+        
+        <p class="highlight">Join the Future of Padel in Amsterdam!</p>
 
-<div class="container">
-    <h1>Something Exciting is Coming Soon!</h1>
-    <p>Hey there! We’ve got something big in the works... 🎉</p>
-    <p>Get ready for <span class="highlight">Social & Sports</span>, your soon-to-be favorite social sports community in Amsterdam! Whether you’re a sports enthusiast, a fitness lover, or someone who enjoys a good hangout after a game, we’re creating a space where fun and fitness meet in the best way possible. 😎</p>
-    <p>We’re working hard behind the scenes, but for now, you can get a sneak peek of what's coming by visiting <a href="https://socialsports.space" class="cta-link" target="_blank">https://socialsports.space</a>. Stay tuned, because this is just the beginning!</p>
-    <p>We can’t wait to share more with you. Keep watching this space – it's going to be worth the wait! ⚡</p>
-    <p>See you soon at Social & Sports!</p>
-    <p>Cheers,<br>The Social & Sports Team</p>
-</div>
+        <p>We’re excited to announce our new Padel club, where fun and competition meet. Whether you're a casual player or looking for competitive matches, we’ve got something for everyone.</p>
 
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🏓</div>
+                <h3>Competitive Matches</h3>
+                <p>Join our league and showcase your skills in friendly yet challenging matches.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎉</div>
+                <h3>Social Gatherings</h3>
+                <p>Enjoy post-match hangsouts with like-minded players over drinks or a bite to eat.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Friendlies & Clinics</h3>
+                <p>Improve your game with tips from experienced players and coaches.</p>
+            </div>
+        </div>
+
+        <a href="https://padel.social" class="cta-link" target="_blank">Explore Now</a>
+        
+        <div class="newsletter-section">
+            <h2>Stay Updated</h2>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email for updates" required>
+                <button class="cta-link">Notify Me</button>
+            </form>
+        </div>
+
+        <p>Cheers,<br>The Padel Social Club Team</p>
+    </div>
 </body>
 </html>
