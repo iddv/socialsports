@@ -165,39 +165,52 @@
         <script>
         function handleSubmit(event) {
             event.preventDefault();
-            const email = document.querySelector('input[type="email"]').value;
-            
+            const form = event.target;
+            const formData = new FormData(form);
+            const email = formData.get('email');
+        
             // Validate email
             if (!validateEmail(email)) {
                 alert('Please enter a valid email address');
                 return;
             }
         
-            // Send data to Formspree
+            // Show loading state
+            const button = document.querySelector('.cta-link');
+            button.innerHTML = 'Sending...';
+            button.disabled = true;
+        
             try {
                 fetch('https://formspree.io/f/myzkpoyd', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'multipart/form-data'
                     },
-                    body: JSON.stringify({
-                        email: email
-                    })
+                    body: formData
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.message) {
+                    button.innerHTML = 'Notify Me';
+                    button.disabled = false;
+        
+                    if (data.ok) {
+                        // Show success message and optionally redirect
                         alert('Thank you for subscribing! 🎉');
+                        window.location.href = data.next || '/thank-you'; 
                     } else {
                         alert('Subscription failed. Please try again.');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    button.innerHTML = 'Notify Me';
+                    button.disabled = false;
                     alert('An error occurred while subscribing. Please try again later.');
                 });
             } catch (error) {
                 console.error('Error:', error);
+                button.innerHTML = 'Notify Me';
+                button.disabled = false;
                 alert('An error occurred while subscribing. Please try again later.');
             }
         }
